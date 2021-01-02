@@ -1,16 +1,14 @@
-import flask
-from flask import request, jsonify
-import pandas as pd
-from datetime import datetime as dt
-
-app = flask.Flask(__name__)
+from location import location
+import requests
+from flask import Flask, jsonify
+app = Flask(__name__, template_folder='.')
 
 
-@app.route('/', methods=['GET'])
-def home():
-    try:
-        return jsonify({
-            'name': 'Dhruv'
-        })
-    except KeyError:
-        return 'Failed'
+@app.route('/location/', methods=['GET'])
+def locater():
+    data = location()
+    return jsonify(data)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
