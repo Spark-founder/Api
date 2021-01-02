@@ -5,9 +5,12 @@ from location import location
 app = flask.Flask(__name__)
 
 
-@app.route('/locater', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     try:
         return jsonify(location())
     except KeyError:
         return 'Failed'
+
+
+app.run(debug=True)
