@@ -11,6 +11,3 @@ def home():
         return jsonify(location())
     except KeyError:
         return 'Failed'
-
-
-app.run(debug=True)
