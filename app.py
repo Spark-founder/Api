@@ -1,10 +1,16 @@
+import flask
+from flask import request, jsonify
 from location import location
-import requests
-from flask import Flask, jsonify
-app = Flask(__name__, template_folder='.')
+
+app = flask.Flask(__name__)
 
 
-@app.route('/location/', methods=['GET'])
-def locater():
-    data = location()
-    return jsonify(data)
+@app.route('/locater', methods=['GET'])
+def home():
+    try:
+        return jsonify(location())
+    except KeyError:
+        return 'Failed'
+
+
+app.run(debug=True)
