@@ -1,4 +1,3 @@
-import folium
 import requests
 
 
