@@ -1,5 +1,3 @@
 flask
 pandas
 gunicorn
-requests
-flask_simple_geoip
